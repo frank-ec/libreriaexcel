@@ -24,15 +24,27 @@ $letra = $hojaActual->getHighestColumn();           // Ultima Letra de celda con
 // Convertir numero a letra de la ultima colummna donde hay datos
 $numeroLetra = Coordinate::columnIndexFromString($letra);
 
-for($indiceFila = 1; $indiceFila<=$numeroFilas; $indiceFila++){
-        $valorA = $hojaActual->getCellByColumnAndRow(1, $indiceFila);
-        $valorB = $hojaActual->getCellByColumnAndRow(2, $indiceFila);
-        $valorC = $hojaActual->getCellByColumnAndRow(3, $indiceFila);
+            for($indiceFila = 1; $indiceFila<=$numeroFilas; $indiceFila++){
+                    $valorA = $hojaActual->getCellByColumnAndRow(1, $indiceFila);
+                    $valorB = $hojaActual->getCellByColumnAndRow(2, $indiceFila);
+                    $valorC = $hojaActual->getCellByColumnAndRow(3, $indiceFila);
+          
+            $sql = "INSERT INTO usuarios
+                    (id, usuario, nombres)
+                    VALUES
+                    ('$valorA', '$valorB', '$valorC')";
+                    $mysqli->query($sql);
 
-$sql = "INSERT INTO usuarios (id, usuario, nombres)
-                VALUES ('$valorA', '$valorB', '$valorC')";
-        $mysqli->query($sql);
-}
+            /*    Validación para omitir subida de archivos  que contenga valor A en la columna 3
+                      if($valorC != 'A'){
+                                $sql = "INSERT INTO usuarios
+                                        (id, usuario, nombres)
+                                        VALUES
+                                        ('$valorA', '$valorB', '$valorC')";
+                                        $mysqli->query($sql);
+                        }
+            */
+            }
 
 echo 'Carga completa';
 
