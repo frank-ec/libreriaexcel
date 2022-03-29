@@ -5,7 +5,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 ### Conexion a la base de datos
-$mysqli = new mysqli('localhost', 'root', '', '');
+$mysqli = new mysqli('localhost', 'root', '3201442Ab*', 'emergencia_baseMadre');
 mysqli_query($mysqli ,"SET CHARACTER SET 'utf8'");
 mysqli_query($mysqli ,"SET SESSION collation_connection ='utf8_unicode_ci'");
 

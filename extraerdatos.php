@@ -15,7 +15,7 @@ if($mysqli->connect_error){
 // Consulta
 $sql = "SELECT * FROM usuarios";
 $resultado = $mysqli->query($sql);
-
+// Uso libreria
 $excel = new Spreadsheet();
 $hojaActiva = $excel->getActiveSheet();
 
